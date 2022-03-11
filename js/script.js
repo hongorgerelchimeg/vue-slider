@@ -5,6 +5,7 @@ const settings =
    data: {
       counter: 3,
       interval: 1000,
+      
       sliderTime: 0,
       activeIndex: 0,
 
@@ -48,48 +49,45 @@ const settings =
       previus() {
          if (this.activeIndex == 0) {
             this.activeIndex = this.arrSlides.length - 1;
+           
             
          }  else {
             this.activeIndex--;
          }
-      }, timer() {
+      },
+       timer() {
          if (this.activeIndex == this.arrSlides.length - 1) {
             this.activeIndex = 0;
-            this.counter = 3;
          }
          if (this.counter == 0) {
            
            this.counter = 3;
            this.activeIndex++;
-           console.log(this.activeIndex);
+          
             
 
          }
          this.counter--;
          
-         console.log(this.counter);
          
-      },
+         
+      }, stopTimer () {
+         this.counter = 100000;
+      }, startTimer() {
+         this.counter = 3;
+      }
       
       
 
 
    },
-   mounted() {
-      
+   created() {
       const timeCounter = setInterval(this.timer, this.interval);
 
+   },
+   mounted() {
       
-      
-
-      
-
-      
-
-      
-
-      
-      
+      // const timeCounter = setInterval(this.timer, this.interval);   
    }
 }
 

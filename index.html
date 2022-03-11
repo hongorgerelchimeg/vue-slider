@@ -10,7 +10,7 @@
 <body>
     <div id="root">
         <div class="slider">
-			<div class="slide">
+			<div @mouseover="stopTimer" class="slide" @mouseout="startTimer">
 				<img :src="`img/${arrSlides[activeIndex].img}`" :alt="arrSlides[activeIndex].title">
 				<div class="slide-contents">
 					<h2 class="slide-title">{{arrSlides[activeIndex].title}}</h2>
