@@ -3,6 +3,9 @@ const settings =
 {
    el: '#root',
    data: {
+      counter: 3,
+      interval: 1000,
+      sliderTime: 0,
       activeIndex: 0,
 
       arrSlides: [
@@ -49,9 +52,44 @@ const settings =
          }  else {
             this.activeIndex--;
          }
-      }
+      }, timer() {
+         if (this.activeIndex == this.arrSlides.length - 1) {
+            this.activeIndex = 0;
+            this.counter = 3;
+         }
+         if (this.counter == 0) {
+           
+           this.counter = 3;
+           this.activeIndex++;
+           console.log(this.activeIndex);
+            
+
+         }
+         this.counter--;
+         
+         console.log(this.counter);
+         
+      },
+      
+      
 
 
+   },
+   mounted() {
+      
+      const timeCounter = setInterval(this.timer, this.interval);
+
+      
+      
+
+      
+
+      
+
+      
+
+      
+      
    }
 }
 
