@@ -3,6 +3,8 @@ const settings =
 {
    el: '#root',
    data: {
+      activeIndex: 0,
+
       arrSlides: [
          {
             title: 'Svezia',
@@ -33,9 +35,21 @@ const settings =
       
    },
    methods: {
-      saluta: function () {
-         this.saluto = 'Ciao' + " " + this.name;
+      next() {
+         if (this.activeIndex == this.arrSlides.length - 1) {
+            this.activeIndex = 0;
+         }  else {
+            this.activeIndex++;
+         }
       },
+      previus() {
+         if (this.activeIndex == 0) {
+            this.activeIndex = this.arrSlides.length - 1;
+            
+         }  else {
+            this.activeIndex--;
+         }
+      }
 
 
    }
